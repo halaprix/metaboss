@@ -185,14 +185,14 @@ fn decode_to_json(metadata: Metadata) -> AnyResult<Value> {
         "symbol": metadata.data.symbol.to_string().trim_matches(char::from(0)),
         "seller_fee_basis_points": metadata.data.seller_fee_basis_points,
         "uri": metadata.data.uri.to_string().trim_matches(char::from(0)),
-        "creators": [creators],
+        "creators": creators,
     });
 
     let json_metadata = json!({
         "key": parse_key(metadata.key),
         "update_authority": metadata.update_authority.to_string(),
-        "mint": metadata.mint.to_string(),
-        "data": data_json,
+        "mint_account": metadata.mint.to_string(),
+        "nft_data": data_json,
         "primary_sale_happened": metadata.primary_sale_happened,
         "is_mutable": metadata.is_mutable,
         "edition_nonce": metadata.edition_nonce,
